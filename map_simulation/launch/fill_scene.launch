@@ -22,11 +22,22 @@ Args
   </include>
 	
 <node name="map_server" pkg="map_server" type="map_server" args="$(find map_simulation)/launch/test_map.yaml" respawn="true" />
-	<group ns="robot1">
-		<param name="tf_prefix" value="robot1_tf"/>
+	<group ns="ag1">
+		<param name="tf_prefix" value="ag1_tf"/>
 		<include file="$(find map_simulation)/launch/pr2.launch">
-			<arg name="init_pose" value="-x -1 -y 1 -z 0"/>
-			<arg name="robot_name" value="pr2_1"/>
+			<arg name="init_pose" value="-x 2.6 -y 5.2 -z 0 -Y 3.14"/>
+			<arg name="robot_name" value="ag1"/>
+		</include>
+		<include file="$(find map_simulation)/launch/pr2_navigation.launch"/>
+			<!--arg name="map_loc" value="$(find map_simulation)/launch/test_map.yaml"/>
+		</include-->
+	</group>
+
+	<group ns="ag2">
+		<param name="tf_prefix" value="ag2_tf"/>
+		<include file="$(find map_simulation)/launch/pr2.launch">
+			<arg name="init_pose" value="-x 6 -y 7.58 -z 0 -Y 1.57"/>
+			<arg name="robot_name" value="ag2"/>
 		</include>
 		<include file="$(find map_simulation)/launch/pr2_navigation.launch"/>
 			<!--arg name="map_loc" value="$(find map_simulation)/launch/test_map.yaml"/>
@@ -41,13 +52,13 @@ Args
 		</include>
 	</group-->
 
-	<group ns="robot3">
+	<!--group ns="robot3">
 		<param name="tf_prefix" value="robot3_tf"/>
 		<include file="$(find map_simulation)/launch/crumb.launch">
 			<arg name="init_pose" value="-x -1 -y 3 -z 0"/>
 			<arg name="robot_name" value="crumb"/>
 		</include>
-	</group>
+	</group-->
 
 	<!--group ns="robot4">
 		<param name="tf_prefix" value="robot4_tf"/>
