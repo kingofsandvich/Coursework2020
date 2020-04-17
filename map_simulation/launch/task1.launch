@@ -13,72 +13,37 @@ Args
 
 <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find map_simulation)/worlds/test_env.world"/>
+    <arg name="world_name" value="$(find map_simulation)/worlds/task1.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
   </include>
-	
-<!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find map_simulation)/launch/test_map.yaml" respawn="true" /> -->
-	<!-- <group ns="ag1">
-		<param name="tf_prefix" value="ag1_tf"/>
-		<include file="$(find map_simulation)/launch/pr2.launch">
-			<arg name="init_pose" value="-x 2.6 -y 5.2 -z 0 -Y 3.14"/>
-			<arg name="robot_name" value="ag1"/>
-		</include>
-		<include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
-	</group> -->
-	<!-- <include file="$(find pr2_gazebo)/launch/pr2_bringup.launch" /> -->
-
+  
+	<!-- PR2 description for moveit -->
 	<include file="$(find pr2_description)/robots/upload_pr2.launch" pass_all_args="false"/>
 	<include file="$(find pr2_moveit_config)/launch/planning_context.launch">
 		<arg name="load_robot_description" value="true"/>
 	</include>
 
-	<group ns="I">
+	<!-- Robots definition section -->
+	<!-- <group ns="I">
 		<param name="tf_prefix" value="I_tf"/>
 		<include file="$(find map_simulation)/launch/pr2.launch">
 			<arg name="init_pose" value="-x 6 -y 7.58 -z 0 -Y 1.57"/>
 			<arg name="robot_name" value="I"/>
 		</include>
 		<include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
-	</group>
+	</group> -->
 
 	<group ns="ag1">
 		<param name="tf_prefix" value="ag1_tf"/>
 		<include file="$(find map_simulation)/launch/pr2.launch">
-			<arg name="init_pose" value="-x 2.6 -y 5.2 -z 0 -Y 3.14"/>
+			<arg name="init_pose" value="-x 2.05 -y 2.05 -z 0 -Y 3.14"/>
 			<arg name="robot_name" value="ag1"/>
 		</include>
 		<include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
 	</group>
-	
-
-	<!--group ns="robot2">
-		<param name="tf_prefix" value="robot2_tf"/>
-		<include file="$(find map_simulation)/launch/pr2.launch">
-			<arg name="init_pose" value="-x -1 -y 2 -z 0"/>
-			<arg name="robot_name" value="pr2_2"/>
-		</include>
-	</group-->
-
-	<!--group ns="robot3">
-		<param name="tf_prefix" value="robot3_tf"/>
-		<include file="$(find map_simulation)/launch/crumb.launch">
-			<arg name="init_pose" value="-x -1 -y 3 -z 0"/>
-			<arg name="robot_name" value="crumb"/>
-		</include>
-	</group-->
-
-	<!--group ns="robot4">
-		<param name="tf_prefix" value="robot4_tf"/>
-		<include file="$(find map_simulation)/launch/crumb.launch">
-			<arg name="init_pose" value="-x -1 -y 4 -z 0"/>
-			<arg name="robot_name" value="crumb_2"/>
-		</include>
-	</group-->
-	
 </launch>
 

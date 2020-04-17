@@ -7,5 +7,5 @@
 		<arg name="init_pose" value="-x 0 -y 0 -z 0 -Y 0"/>
 		<arg name="robot_name" value="pr2"/>
 	</include>
-	<!--include file="$(find pr2_moveit_config)/launch/move_group.launch"/-->
+	<include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
 </launch>

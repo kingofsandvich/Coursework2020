@@ -27,8 +27,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
               </ode>
               <torsional>
                 <ode/>
@@ -68,7 +68,7 @@
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
       <gravity>0.000000 0.000000 -9.810000</gravity>
-      <!-- <ode>
+      <ode>
         <solver>
           <type>quick</type>
           <iters>100</iters>
@@ -81,7 +81,7 @@
           <contact_max_correcting_vel>1000.000000</contact_max_correcting_vel>
           <contact_surface_layer>0.00000</contact_surface_layer>
         </constraints>
-      </ode> -->
+      </ode>
     </physics>
     <!-- <physics type="ode">
       <gravity>0.000000 0.000000 -9.810000</gravity>
@@ -144,6 +144,18 @@
               </torsional>
               <ode/>
             </friction>
+            <!-- <contact>
+              <ode>
+                <max_vel>1.0</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction> -->
           </surface>
         </collision>
         <visual name='visual'>
@@ -155,8 +167,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>0.01</mu>
-                <mu2>0.01</mu2>
+                <mu>10.0</mu>
+                <mu2>5.0</mu2>
               </ode>
             </friction>
           </surface>
@@ -172,7 +184,7 @@
       </link>
     </model>
 
-    <model name='unit_box_copy'>
+    <!-- <model name='unit_box_copy'>
       <pose frame=''>0.170415 -2.36434 0.5 0 -0 0</pose>
       <link name='link'>
         <inertial>
@@ -204,6 +216,18 @@
               </torsional>
               <ode/>
             </friction>
+            <contact>
+              <ode>
+                <max_vel>1.0</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.4</mu>
+                <mu2>0.4</mu2>
+              </ode>
+            </friction>
           </surface>
         </collision>
         <visual name='visual'>
@@ -215,8 +239,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>0.01</mu>
-                <mu2>0.01</mu2>
+                <mu>100.0</mu>
+                <mu2>50.0</mu2>
               </ode>
             </friction>
           </surface>
@@ -230,7 +254,7 @@
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
       </link>
-    </model>
+    </model> -->
 
     <state world_name='default'>
       <sim_time>0 0</sim_time>
@@ -258,7 +282,7 @@
         </link>
       </model>
 
-      <model name='unit_box_copy'>
+      <!-- <model name='unit_box_copy'>
         <pose frame=''>0 -0.5 0.098 0 -0 0</pose>
         <scale>0.065036 0.065036 0.065036</scale>
         <link name='link'>
@@ -267,7 +291,7 @@
           <acceleration>-0.070438 -0.070678 1.41199 -0.967935 -0.967798 3.14154</acceleration>
           <wrench>-0.070438 -0.070678 1.41199 0 -0 0</wrench>
         </link>
-      </model>
+      </model> -->
 
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
